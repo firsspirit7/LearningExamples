@@ -1,0 +1,64 @@
+<apex:page controller="tabPannelClass"> 
+     <script>
+        function hi(){
+        
+        alert('hi');
+        call();
+        }
+    </script> 
+    
+  
+  <apex:form >
+    <apex:actionFunction name="client"/>    
+    <apex:tabPanel switchType="client" >
+       <apex:tab label="Pages" labelWidth="200px">
+          <apex:pageBlock >
+             <apex:pageBlockTable value="{!Pagess}" var="p" id="pb">    
+               <apex:column headerValue="PageName">
+                  <apex:outputLink value="/apex/{!p.Name}">{!p.Name}</apex:outputLink> 
+               </apex:column>        
+             </apex:pageBlockTable>
+          </apex:pageBlock>
+       </apex:tab>
+       <apex:tab label="Classes" labelWidth="200px" >
+           <apex:pageBlock >
+            <apex:pageBlockTable value="{!Classess}" var="c" > 
+              <apex:column headerValue="ClassName"> 
+               <apex:outputLink value="/{!c.id}/e?">{!c.Name}</apex:outputLink>
+              </apex:column>            
+            </apex:pageBlockTable>
+           </apex:pageBlock>
+       </apex:tab>
+       <apex:tab label="RecordTypes" labelWidth="200px">
+            <apex:pageBlock >
+              <apex:pageBlockTable value="{!RecordTypess}" var="r" > 
+                 <apex:column headerValue="RecordTypeName"> 
+                    <apex:outputLink value="/setup/ui/recordtypefields.jsp?id={!r.id}">{!r.Name}</apex:outputLink>
+                 </apex:column>             
+              </apex:pageBlockTable>
+            </apex:pageBlock>
+       </apex:tab>
+       <apex:tab label="Triggers" labelWidth="200px">
+           <apex:pageBlock >
+              <apex:pageBlockTable value="{!Triggerss}" var="t"> 
+                 <apex:column headerValue="TriggerName"> 
+                   <apex:outputLink value="/{!t.id}/e?">{!t.name}</apex:outputLink> 
+                 </apex:column>  
+                 <apex:column value="{!t.TableEnumOrId}"/>            
+              </apex:pageBlockTable>
+           </apex:pageBlock>
+       </apex:tab>
+       <apex:tab label="Users" labelWidth="200px">
+            <apex:pageBlock >
+              <apex:pageBlockTable value="{!userss}" var="u">
+                <apex:column headerValue="UserNames"> 
+                  <!--<apex:commandLink value="{!u.Name}" action="{!viewUser}"/> 
+                      <apex:param value="{!u.id}" assignTo="{!recordid}"/>-->
+                      <apex:outputLink value="/{!u.id}">{!u.name}</apex:outputLink>                 
+                </apex:column>  
+              </apex:pageBlockTable>
+            </apex:pageBlock>
+       </apex:tab>
+    </apex:tabPanel>
+  </apex:form>
+</apex:page>

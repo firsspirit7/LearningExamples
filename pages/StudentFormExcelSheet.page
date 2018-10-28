@@ -1,0 +1,35 @@
+<apex:page controller="studentFormExcelclass" contentType="application/vnd.ms-excel#StudentForm.xls" standardStylesheets="false">
+  <apex:form >
+      <apex:pageBlock title="StudentForm Details">        
+          <apex:pageBlockTable value="{!getRecords}" var="r">
+              <apex:column headerValue="StudentName">
+                  <apex:outputText value="{!r.Name}"/>
+              </apex:column>
+              <apex:column headerValue="Location">
+                   <apex:outputText value="{!r.Name}"/>
+              </apex:column>
+              <apex:column headerValue="PhoneNumber">
+                   <apex:outputText value="{!r.PhoneNumber__c}"/>
+              </apex:column>
+              <apex:column headerValue="Gender">
+                   <apex:outputText value="{!r.Gender__c}"/>
+              </apex:column>
+              <apex:column headerValue="Qualification">
+                   <apex:outputText value="{!r.Qualification__c}"/>
+              </apex:column>
+              <apex:column headerValue="Skills">
+                   <apex:outputText value="{!r.Skills__c}"/>
+              </apex:column>
+              <apex:column headerValue="Age">
+                   <apex:outputText value="{!r.Age__c}"/>
+              </apex:column>
+              <apex:column headerValue="DateOfBirth">
+                   <apex:outputText value="{!r.DateOfBirth__c}"/>
+              </apex:column>
+              <apex:column headerValue="MaritalStatus">
+                   <apex:outputText value="{!r.MaritalStatus__c}"/>
+              </apex:column>              
+          </apex:pageBlockTable>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

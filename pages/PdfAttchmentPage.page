@@ -1,0 +1,14 @@
+<apex:page controller="pdfAttchmentClass" id="p" >
+  <apex:form id="f">
+   <apex:pageblock id="pb">          
+    <apex:pageBlockTable value="{!getcontacts}" var="c">
+      <apex:column headerValue="Contact Name">
+       <apex:outputText value="{!c.Name}"/>
+      </apex:column>
+      <apex:column headerValue="Email">
+       <apex:outputText value="{!c.Email}"/>
+      </apex:column>
+    </apex:pageBlockTable>
+   </apex:pageblock>
+  </apex:form>
+</apex:page>

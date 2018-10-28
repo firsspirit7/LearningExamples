@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The main challenge or contest for the application.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Additional_Info__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Info</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Blog_URL__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The URL of the blog announcement.</inlineHelpText>
+        <label>Blog URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <referenceTo>Category__c</referenceTo>
+        <relationshipLabel>Challenges</relationshipLabel>
+        <relationshipName>Challenges</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Code_Submissions__c</fullName>
+        <description>The number of members that submitted code.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of members that submitted code.</inlineHelpText>
+        <label>Code Submissions</label>
+        <summaryFilterItems>
+            <field>Challenge_Participant__c.Submission_File__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </summaryFilterItems>
+        <summaryForeignKey>Challenge_Participant__c.Challenge__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Contest_Image__c</fullName>
+        <externalId>false</externalId>
+        <label>Contest Image</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Contest_Logo__c</fullName>
+        <externalId>false</externalId>
+        <label>Contest Logo</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Days_till_Close__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(DATEVALUE(End_Date__c) - Today() &lt; 0, 
+  0, 
+  DATEVALUE(End_Date__c) - Today()
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days till Close</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Display_Leaderboard__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Does the results of the challenge appear on the leaderboard?</description>
+        <externalId>false</externalId>
+        <label>Display on Leaderboard?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <description>The date and time the challenge will stop appearing on the site.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date and time the challenge will stop appearing on the site.</inlineHelpText>
+        <label>End Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Group_Access__c</fullName>
+        <externalId>false</externalId>
+        <label>Group Access</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Administrator</fullName>
+                    <default>false</default>
+                    <label>Administrator</label>
+                </value>
+                <value>
+                    <fullName>Appirio</fullName>
+                    <default>false</default>
+                    <label>Appirio</label>
+                </value>
+                <value>
+                    <fullName>Dibon</fullName>
+                    <default>false</default>
+                    <label>Dibon</label>
+                </value>
+                <value>
+                    <fullName>Metacube</fullName>
+                    <default>false</default>
+                    <label>Metacube</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Partners</fullName>
+                    <default>false</default>
+                    <label>Partners</label>
+                </value>
+                <value>
+                    <fullName>Reviewers</fullName>
+                    <default>false</default>
+                    <label>Reviewers</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Install_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Install URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Reviewers__c</fullName>
+        <defaultValue>1</defaultValue>
+        <externalId>false</externalId>
+        <label>Number of Reviewers</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prize_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Prize Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Currency</fullName>
+                    <default>true</default>
+                    <label>Currency</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Registered_Members__c</fullName>
+        <description>The number of registered members for the challenge.</description>
+        <externalId>false</externalId>
+        <label>Registered Members</label>
+        <summaryForeignKey>Challenge_Participant__c.Challenge__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Release_to_Open_Source__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Release to Open Source?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Requirements__c</fullName>
+        <externalId>false</externalId>
+        <label>Requirements</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Review_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Review Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Private</fullName>
+                    <default>true</default>
+                    <label>Private</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SQL_Id__c</fullName>
+        <description>The ID of the challenge in SQL Server.</description>
+        <externalId>true</externalId>
+        <label>SQL Id</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Scorecard__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The type of scorecard to be used to judged each submission.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of scorecard to be used to judged each submission.</inlineHelpText>
+        <label>Scorecard</label>
+        <referenceTo>QwikScore_Scorecard__c</referenceTo>
+        <relationshipLabel>Challenges</relationshipLabel>
+        <relationshipName>Challenges</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Source_Code_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Source Code URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Sponsor__c</fullName>
+        <externalId>false</externalId>
+        <label>Sponsor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Appirio</fullName>
+                    <default>true</default>
+                    <label>Appirio</label>
+                </value>
+                <value>
+                    <fullName>Twilio</fullName>
+                    <default>false</default>
+                    <label>Twilio</label>
+                </value>
+                <value>
+                    <fullName>salesforce.com</fullName>
+                    <default>false</default>
+                    <label>salesforce.com</label>
+                </value>
+                <value>
+                    <fullName>Tokbox</fullName>
+                    <default>false</default>
+                    <label>Tokbox</label>
+                </value>
+                <value>
+                    <fullName>CloudSpokes</fullName>
+                    <default>false</default>
+                    <label>CloudSpokes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <description>The date the challenge will begin appearing on the site.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the challenge will begin appearing on the site.</inlineHelpText>
+        <label>Start Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Created</fullName>
+                    <color>#78C953</color>
+                    <default>true</default>
+                    <label>Created</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <color>#FFFF66</color>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Hidden</fullName>
+                    <color>#666666</color>
+                    <default>false</default>
+                    <label>Hidden</label>
+                </value>
+                <value>
+                    <fullName>Review</fullName>
+                    <color>#FF0000</color>
+                    <default>false</default>
+                    <label>Review</label>
+                </value>
+                <value>
+                    <fullName>Submission</fullName>
+                    <color>#E27001</color>
+                    <default>false</default>
+                    <label>Submission</label>
+                </value>
+                <value>
+                    <fullName>Winner Selected</fullName>
+                    <color>#0B6FCE</color>
+                    <default>false</default>
+                    <label>Winner Selected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Submission_Badge__c</fullName>
+        <description>The badge each user receives when attaining satisfactory submission score.</description>
+        <externalId>false</externalId>
+        <label>Submission Badge</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Head in the Clouds</fullName>
+                    <default>false</default>
+                    <label>Head in the Clouds</label>
+                </value>
+                <value>
+                    <fullName>Joined the Party</fullName>
+                    <default>false</default>
+                    <label>Joined the Party</label>
+                </value>
+                <value>
+                    <fullName>Getting into the race!</fullName>
+                    <default>false</default>
+                    <label>Getting into the race!</label>
+                </value>
+                <value>
+                    <fullName>AWESOME CERTIFIED</fullName>
+                    <default>false</default>
+                    <label>AWESOME CERTIFIED</label>
+                </value>
+                <value>
+                    <fullName>The Librarian</fullName>
+                    <default>false</default>
+                    <label>The Librarian</label>
+                </value>
+                <value>
+                    <fullName>CloudSpoker</fullName>
+                    <default>false</default>
+                    <label>CloudSpoker</label>
+                </value>
+                <value>
+                    <fullName>CloudSpoker Traveler</fullName>
+                    <default>false</default>
+                    <label>CloudSpoker Traveler</label>
+                </value>
+                <value>
+                    <fullName>CloudSpoker Adventurer</fullName>
+                    <default>false</default>
+                    <label>CloudSpoker Adventurer</label>
+                </value>
+                <value>
+                    <fullName>CloudSpoker Ninja</fullName>
+                    <default>false</default>
+                    <label>CloudSpoker Ninja</label>
+                </value>
+                <value>
+                    <fullName>Cloud Foundry Apprentice</fullName>
+                    <default>false</default>
+                    <label>Cloud Foundry Apprentice</label>
+                </value>
+                <value>
+                    <fullName>Cloud Foundry Journeyman</fullName>
+                    <default>false</default>
+                    <label>Cloud Foundry Journeyman</label>
+                </value>
+                <value>
+                    <fullName>Cloud Foundry Blacksmith</fullName>
+                    <default>false</default>
+                    <label>Cloud Foundry Blacksmith</label>
+                </value>
+                <value>
+                    <fullName>Force.com Follower</fullName>
+                    <default>false</default>
+                    <label>Force.com Follower</label>
+                </value>
+                <value>
+                    <fullName>The Shakespearean</fullName>
+                    <default>false</default>
+                    <label>The Shakespearean</label>
+                </value>
+                <value>
+                    <fullName>The Data Modeler</fullName>
+                    <default>false</default>
+                    <label>The Data Modeler</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Submission_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Submission Details</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Teaser__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Short, teaser text used for the newsletter.</inlineHelpText>
+        <label>Teaser</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Terms__c</fullName>
+        <externalId>false</externalId>
+        <label>Terms of Agreement</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Standard Terms &amp; Conditions</fullName>
+                    <default>true</default>
+                    <label>Standard Terms &amp; Conditions</label>
+                </value>
+                <value>
+                    <fullName>Terms &amp; Conditions 2.0</fullName>
+                    <default>false</default>
+                    <label>Terms &amp; Conditions 2.0</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Total_Prize_Money__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Prize Money</label>
+        <summarizedField>Challenge_Prize__c.Value__c</summarizedField>
+        <summaryForeignKey>Challenge_Prize__c.Challenge__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Usage_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Usage Details</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Winner_Announced__c</fullName>
+        <description>The date that the winner of the challenge will be announced.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date that the winner of the challenge will be announced.</inlineHelpText>
+        <label>Winner Announced</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Winner_Badge__c</fullName>
+        <description>The badge that the challenge winner receives.</description>
+        <externalId>false</externalId>
+        <label>Winner Badge</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Head in the Clouds</fullName>
+                    <default>false</default>
+                    <label>Head in the Clouds</label>
+                </value>
+                <value>
+                    <fullName>Joined the Party</fullName>
+                    <default>false</default>
+                    <label>Joined the Party</label>
+                </value>
+                <value>
+                    <fullName>Getting into the race!</fullName>
+                    <default>false</default>
+                    <label>Getting into the race!</label>
+                </value>
+                <value>
+                    <fullName>AWESOME CERTIFIED</fullName>
+                    <default>false</default>
+                    <label>AWESOME CERTIFIED</label>
+                </value>
+                <value>
+                    <fullName>The Librarian</fullName>
+                    <default>false</default>
+                    <label>The Librarian</label>
+                </value>
+                <value>
+                    <fullName>CloudSpoker</fullName>
+                    <default>false</default>
+                    <label>CloudSpoker</label>
+                </value>
+                <value>
+                    <fullName>CloudSpoker Traveler</fullName>
+                    <default>false</default>
+                    <label>CloudSpoker Traveler</label>
+                </value>
+                <value>
+                    <fullName>CloudSpoker Adventurer</fullName>
+                    <default>false</default>
+                    <label>CloudSpoker Adventurer</label>
+                </value>
+                <value>
+                    <fullName>CloudSpoker Ninja</fullName>
+                    <default>false</default>
+                    <label>CloudSpoker Ninja</label>
+                </value>
+                <value>
+                    <fullName>Cloud Foundry Apprentice</fullName>
+                    <default>false</default>
+                    <label>Cloud Foundry Apprentice</label>
+                </value>
+                <value>
+                    <fullName>Cloud Foundry Journeyman</fullName>
+                    <default>false</default>
+                    <label>Cloud Foundry Journeyman</label>
+                </value>
+                <value>
+                    <fullName>Cloud Foundry Blacksmith</fullName>
+                    <default>false</default>
+                    <label>Cloud Foundry Blacksmith</label>
+                </value>
+                <value>
+                    <fullName>Force.com Follower</fullName>
+                    <default>false</default>
+                    <label>Force.com Follower</label>
+                </value>
+                <value>
+                    <fullName>The Shakespearean</fullName>
+                    <default>false</default>
+                    <label>The Shakespearean</label>
+                </value>
+                <value>
+                    <fullName>The Data Modeler</fullName>
+                    <default>false</default>
+                    <label>The Data Modeler</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Challenge</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Sponsor__c</columns>
+        <columns>Status__c</columns>
+        <columns>Days_till_Close__c</columns>
+        <columns>Registered_Members__c</columns>
+        <columns>Code_Submissions__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <columns>Release_to_Open_Source__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Winner_Selected</fullName>
+        <columns>NAME</columns>
+        <columns>Sponsor__c</columns>
+        <columns>Registered_Members__c</columns>
+        <columns>Code_Submissions__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <columns>Release_to_Open_Source__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Winner Selected</value>
+        </filters>
+        <label>All Winner Selected</label>
+    </listViews>
+    <listViews>
+        <fullName>Challenges_to_be_Scored</fullName>
+        <columns>NAME</columns>
+        <columns>Registered_Members__c</columns>
+        <columns>Code_Submissions__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Review</value>
+        </filters>
+        <label>Challenges to be Scored</label>
+    </listViews>
+    <listViews>
+        <fullName>Open_Challenges</fullName>
+        <columns>NAME</columns>
+        <columns>Days_till_Close__c</columns>
+        <columns>Registered_Members__c</columns>
+        <columns>Code_Submissions__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Days_till_Close__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </filters>
+        <label>Open Challenges</label>
+    </listViews>
+    <nameField>
+        <label>Challenge Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Challenges</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Days_till_Close__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Registered_Members__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Code_Submissions__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>End_Date__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Days_till_Close__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Registered_Members__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>End_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Challenge_Details</fullName>
+        <availability>online</availability>
+        <description>Displays challenge on CloudSpokes site.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Challenge Details</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.cloudspokes.com/challenge_detail.html?contestID={!Challenge__c.SQL_Id__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Challenge_Registrants</fullName>
+        <availability>online</availability>
+        <description>Display challenge registrants on CloudSpokes.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Challenge Registrants</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.cloudspokes.com/Challenge_registraints.html?contest_id={!Challenge__c.SQL_Id__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Contest_Winners</fullName>
+        <availability>online</availability>
+        <description>Displays contest winners on CloudSpokes.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Contest Winners</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.cloudspokes.com/challenges_winner.aspx?contestid={!Challenge__c.SQL_Id__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Edit_Challenge</fullName>
+        <availability>online</availability>
+        <description>Edit the challenge in CloudSpokes.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Edit Challenge</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.cloudspokes.com/manage_challenge_detail.html?contestid={!Challenge__c.SQL_Id__c}</url>
+    </webLinks>
+</CustomObject>

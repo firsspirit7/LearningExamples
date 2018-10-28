@@ -1,0 +1,17 @@
+<apex:page controller="dynamicObjectFieldsDisplayClass">
+ <script type="text/javascript">
+    function mypopup(myobj)
+    {     
+    mywindow = window.open("/apex/DynamicObjectFieldsDisplayLink?myobj="+myobj, "mywindow", "location=1,status=1,scrollbars=1,  width=500,height=500");
+    }
+</script>
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockTable value="{!objects}" var="o">
+        <apex:column headerValue="List Of Objects">
+          <apex:commandLink value="{!o}" onClick="mypopup('{!o}')"/>
+        </apex:column> 
+      </apex:pageBlockTable>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

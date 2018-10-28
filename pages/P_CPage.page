@@ -1,0 +1,14 @@
+<apex:page standardController="Account" recordSetVar="acs" >
+ <apex:form >
+ <apex:pageBlock title="Parent To Child Information">
+ <div align="center">
+ <font size="4">Account Name:</font> </div><br/>
+ <apex:repeat value="{!acs}" var="a">
+  <apex:outputLink value="/{!a.id}"><apex:outputfield value="{!a.name}"/></apex:outputLink>
+  <apex:pageblockTable value="{!a.Contacts}" var="c" >
+ <apex:column value="{!c.name}"/>
+ </apex:pageblockTable>
+  </apex:repeat>
+  </apex:pageBlock>
+ </apex:form>
+</apex:page>

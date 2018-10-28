@@ -1,0 +1,32 @@
+<apex:page controller="dynamicObjectsProperties2Class" >
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockTable value="{!lstobjinfo}" var="l">
+        <apex:column headerValue="ObjectName">
+           <apex:outputText value="{!l.gname}"/>
+        </apex:column>
+        <apex:column headerValue="Label">
+           <apex:outputText value="{!l.glabel}"/>
+        </apex:column>
+        <apex:column headerValue="SObjectType">
+           <apex:outputText value="{!l.gSobj}"/>
+        </apex:column>
+        <apex:column headerValue="IsCustom">
+           <apex:outputText value="{!l.gcust}"/>
+        </apex:column>
+        <apex:column headerValue="KeyPrefix">
+           <apex:outputText value="{!l.gkeypix}"/>
+        </apex:column>
+        <apex:column headerValue="IsAccessible">
+           <apex:outputText value="{!l.gaccs}"/>
+        </apex:column>
+        <apex:column headerValue="IsCreateable">
+           <apex:outputText value="{!l.gcre}"/>
+        </apex:column>
+        <apex:column headerValue="IsDeletable">
+           <apex:outputText value="{!l.gdel}"/>
+        </apex:column>
+      </apex:pageBlockTable>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

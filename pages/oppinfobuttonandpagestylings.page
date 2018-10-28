@@ -1,0 +1,157 @@
+<apex:page controller="oppinfobuttonandpagestylings"  ShowHeader="false" sidebar="false">
+    <script>
+       function showDialog(){
+           window.showModalDialog('/apex/oppltpopuppage?id={!currentpageid}',"width=300px;height=300px;");
+       }
+       function Accnewpage(){
+           window.open('https://ap1.salesforce.com/001/e?retURL=%2F001%2Fo&RecordType=012900000008717&ent=Account&nooverride=1');
+       }
+    </script>
+    <style type="text/css">
+     
+        body .bPageBlock, body .bPageBlock .pbBody, body .bPageBlock .pbBottomButtons {
+            background-color: #E5C130 !important;
+            
+            margin: 0 !important;
+        }
+        .Accountimg
+		{
+			background-image:url('https://ap1.salesforce.com/resource/1347276546000/Accountimg');
+			background-repeat:no-repeat;
+			background-color:white;
+			color:white !important;
+			font-family:sans-serif;
+			font-weight:600;
+			background-size:200%;
+		}  
+		.contactimg
+		{
+			background-image:url('https://ap1.salesforce.com/resource/1347277171000/ContactImage');
+			background-repeat:no-repeat;
+			background-color:white;
+			color:white;
+			font-family:sans-serif;
+			font-weight:600;
+			background-size: 100%;
+		}  
+
+           
+    </style>
+    <apex:form style="background-color:white;">
+   
+        <apex:pageBlock id="pb" mode="maindetail">
+      
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandLink value="Edit" rendered="{!Not(rendering)}" action="{!edit}" reRender="pb" status="mystatus" style="color:blue;"/>
+                <apex:commandLink value="Update" rendered="{!rendering}" action="{!save}" reRender="pb" style="color:blue;"/>&nbsp;
+                
+                &nbsp;<apex:commandLink value="New" rendered="{!Not(rendering)}" action="{!newopp}" style="color:blue;"/>&nbsp;
+                &nbsp;<apex:outputLink onClick="showDialog()" style="color:blue;" target="_New"  >Opportunity Line Item</apex:outputLink>
+             
+               
+            </apex:pageBlockButtons>
+            <apex:pageBlocksection Title="OpportunityInfo" >
+
+                
+                <apex:outputField value="{!opp.name}" rendered="{!Not(rendering)}"/>
+                <apex:inputField value="{!opp.name}" rendered="{!rendering}"/>
+           
+              
+                <apex:outputField value="{!opp.StageName}" rendered="{!Not(rendering)}"/>
+                 <apex:inputField value="{!opp.StageName}" rendered="{!rendering}"/>
+            
+            
+                <apex:outputField value="{!opp.CloseDate}" rendered="{!Not(rendering)}"/>
+                 <apex:inputField value="{!opp.CloseDate}" rendered="{!rendering}"/>
+           
+         
+                <apex:outputField value="{!opp.Amount}" rendered="{!Not(rendering)}"/>
+                <apex:inputField value="{!opp.Amount}" rendered="{!rendering}"/>
+             
+                <apex:outputField value="{!opp.Ownerid}" rendered="{!Not(rendering)}"/>
+                <apex:inputField value="{!opp.Ownerid}"  rendered="{!rendering}"/>
+              
+            </apex:pageBlockSection>       
+        </apex:pageBlock>
+        
+        
+        <apex:pageBlock id="pb1">
+        <body bgproperties="fixed" >  
+        <table border="1" cellpadding="130" cellspacing="0" bgcolor="white">
+        
+        
+        <tr>
+            <td class="Accountimg" valign="baseline" align="justify" >
+            <div>
+         <table cellpadding="20" bgcolor="#236FBD" >
+         <caption><b>Account Information</b></caption>
+         <apex:image value="/img/icon/perAccounts32.png"  onclick="Accnewpage()" style="vertical-align:left" width="50"/>
+         <apex:commandLink value="Edit" rendered="{!Not(rendering)}" action="{!edit}" reRender="pb1" style="color:blue;"/>
+         <apex:commandLink value="Update" action="{!saveacc}" rendered="{!rendering}" reRender="pb1"  style="color:blue;"/>&nbsp;
+                <tr>
+                    <td> <h1> <font color="white">Account Name:</font> </h1></td>
+                    <td> <font color="white"><apex:inputField value="{!acc.Name}"  rendered="{!rendering}"/> </font></td>
+                    <td> <font color="white"><apex:outputField value="{!acc.Name}"  rendered="{!not(rendering)}"/> </font></td>
+                </tr>
+                <tr>
+                    <td> <h1> <font color="white">Account Industry:</font> </h1></td>
+                    <td> <font color="white"><apex:inputField value="{!acc.industry}" rendered="{!rendering}"/> </font></td>
+                    <td> <font color="white"><apex:outputField value="{!acc.industry}" rendered="{!not(rendering)}"/> </font></td>
+                </tr>
+                <tr>
+                    <td> <h1> <font color="white">Account Type:</font> </h1></td>
+                    <td> <font color="white"><apex:inputField value="{!acc.type}" rendered="{!rendering}"/> </font></td>
+                    <td><font color="white"> <apex:outputField value="{!acc.type}" rendered="{!not(rendering)}"/></font></td>
+                </tr>
+                <tr>
+                    <td> <h1> <font color="white">Account Website</font> </h1></td>
+                    <td> <font color="white"><apex:inputField value="{!acc.website}" rendered="{!rendering}"/></font> </td>
+                    <td> <font color="white"><apex:outputField value="{!acc.website}" rendered="{!not(rendering)}"/> </font></td>
+                </tr>
+                <tr>
+                    <td> <h1> <font color="white">Account Phone: </font></h1></td>
+                    <td> <font color="white"><apex:inputField value="{!acc.phone}" rendered="{!rendering}"/> </font></td>
+                    <td><font color="white"> <apex:outputField value="{!acc.phone}" rendered="{!not(rendering)}"/> </font></td>
+                </tr>
+                
+            </table>
+           </div>
+           <div>
+           </div>
+            </td>
+            <td CLASS="contactimg" valign="baseline" align="justify" >
+            
+            <table border="1 " cellpadding="50" cellspacing="0" bgcolor="#56458C"  >
+            <caption><b>Contact Role Information</b></caption>
+             <apex:image value="/img/icon/people16.png" style="vertical-align:left" width="30"/>
+            
+                <tr>
+                    <td> <H1> <font color="white">Contact Name</font></H1></td>
+                    <td><h1><font color="white">Email</font></h1></td>
+                    <td><h1><font color="white">Lead Source</font></h1></td>
+                    <td><h1><font color="white">Role</font></h1></td>
+                    
+                </tr>
+                
+               
+                <apex:repeat value="{!lstoppcr}" var="r" id="theRepeat" >
+                    <tr>
+                    <td><font color="white"><apex:outputLink value="https://ap1.salesforce.com/{!r.contactId}">{!r.contact.lastname}</apex:outputLink></font></td>
+                    <td><font color="white">{!r.contact.Email}</font></td>
+                    <td><font color="white">{!r.contact.LeadSource}</font></td>
+                    <td><font color="white">{!r.role}</font></td>
+                   </tr>
+                </apex:repeat> 
+               
+                 
+            </table>
+            </td>
+            </tr>
+            
+            </table>
+            </body>
+           
+            </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>

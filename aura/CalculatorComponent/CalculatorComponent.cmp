@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute name="fNumber" type="decimal"/>
+    <aura:attribute name="sNumber" type="decimal"/>
+    <aura:attribute name="Result" type="decimal"/>
+	<div>
+        First Number:
+        <ui:inputNumber value="{!v.fNumber}" aura:id="fnumberId"/>
+        Second Number:
+    	<ui:inputNumber value="{!v.sNumber}"/>
+        Result:        
+        <ui:inputNumber value="{!v.Result}"/>
+    </div>
+    <div>
+    	<button onclick="{!c.calculate}">Calculate</button>
+    </div>
+</aura:component>

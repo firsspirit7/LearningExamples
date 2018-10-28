@@ -1,0 +1,28 @@
+<apex:page controller="oppltpopupcls" ShowHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="save" action="{!saveopplt}" />
+                 <apex:commandLink style="Color:red;" action="javascript:self.close();" value="[Close]"/>
+                
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!lstopplitem}" var="opplt">
+            <apex:column Headervalue="Product Name:">
+                <apex:inputField value="{!opplt.PricebookEntry.Name}" />
+            </apex:column>
+            <apex:column HeaderValue="Product Code">
+                <apex:inputField value="{!opplt.PricebookEntry.ProductCode}" />
+            </apex:column> 
+            <apex:column HeaderValue="ListPrice">
+                <apex:inputField value="{!opplt.ListPrice}" />
+            </apex:column>
+            <apex:column HeaderValue="UnitPrice">
+                <apex:inputField value="{!opplt.UnitPrice}" />
+            </apex:column>
+            <apex:column HeaderValue="Quantity">
+                <apex:inputField value="{!opplt.Quantity}" />
+            </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

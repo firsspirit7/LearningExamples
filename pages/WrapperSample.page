@@ -1,0 +1,10 @@
+<apex:page controller="wrapcls" >
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageblockTable value="{!items}" var="p">
+            <apex:column headerValue="Name" value="{!p.name}"/>
+             <apex:column headerValue="Salary" value="{!p.sal}"/>
+        </apex:pageblockTable>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

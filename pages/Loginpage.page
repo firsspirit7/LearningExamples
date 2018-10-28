@@ -1,0 +1,44 @@
+<apex:page controller="Loginstudentinfowithpassword" showHeader="false" sidebar="false" standardStylesheets="false">
+   <apex:form title="StudentLoginPage">
+   
+    <script>
+      function signin()
+      {
+           signin1() ;
+      
+        
+      }        
+
+   </script>
+   
+       <apex:pageMessages id="ap1" />
+
+    <apex:actionFunction name="signin1" action="{!pgsignin}" reRender="op,ap1"/>
+      <body bgcolor="#E6E6FA">
+       
+   <table  frame="border"  cellpadding="40" cellspacing="0" align="right"> <caption><b>STUDENT LOGIN PAGE</b></caption>
+                  <tr>
+         <td><h4>UserName</h4></td>
+         <td><apex:inputText value="{!username}"/> </td>
+      </tr>
+      <tr>
+        <td><h4>Password</h4></td>
+        <td><apex:inputSecret value="{!password}"/> </td>
+      
+      </tr>
+      <tr>
+      <td><apex:outputLink onClick="signin(); return false;" style="color:black;"  id="op">SignIn</apex:outputLink></td><td><apex:commandButton value="SignUp" action="{!signuppage}"/></td>
+      </tr>
+      
+  <!---<apex:outputLink onClick="showDialog('{!oppid}')" style="color:red;" target="_New">Opportunity Line Item</apex:outputLink>--->
+
+
+
+   <tr>
+   <td><apex:commandLink value="Cannot Access My Account"/></td>
+   </tr>
+   </table>
+   </body>
+     
+   </apex:form>
+</apex:page>

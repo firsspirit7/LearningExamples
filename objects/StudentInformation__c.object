@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>DOB__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH(  DateOfBirth__c  ), 
+1, &quot;January&quot;, 
+2, &quot;February&quot;, 
+3, &quot;March&quot;, 
+4, &quot;April&quot;, 
+5, &quot;May&quot;, 
+6, &quot;June&quot;, 
+7, &quot;July&quot;, 
+8, &quot;August&quot;, 
+9, &quot;September&quot;, 
+10, &quot;October&quot;, 
+11, &quot;November&quot;, 
+12, &quot;December&quot;, 
+&quot;None&quot;) + &quot; &quot; + 
+TEXT(DAY(DateOfBirth__c  )) + &quot; &quot; + Case(DAY( DateOfBirth__c ), 
+1,&quot;st&quot;, 
+2,&quot;nd&quot;, 
+3,&quot;rd&quot;, 
+4,&quot;th&quot;, 
+5,&quot;th&quot;, 
+6,&quot;th&quot;, 
+7,&quot;th&quot;, 
+8,&quot;th&quot;, 
+9,&quot;th&quot;, 
+10,&quot;th&quot;, 
+11,&quot;th&quot;, 
+12,&quot;th&quot;, 
+13,&quot;th&quot;, 
+14,&quot;th&quot;, 
+15,&quot;th&quot;, 
+16,&quot;th&quot;, 
+17,&quot;th&quot;, 
+18,&quot;th&quot;, 
+19,&quot;th&quot;, 
+20,&quot;th&quot;, 
+21,&quot;st&quot;, 
+22,&quot;nd&quot;, 
+23,&quot;rd&quot;, 
+24,&quot;th&quot;, 
+25,&quot;th&quot;, 
+26,&quot;th&quot;, 
+27,&quot;th&quot;, 
+28,&quot;th&quot;, 
+29,&quot;th&quot;, 
+30,&quot;th&quot;, 
+31,&quot;st&quot;,&quot;None&quot;) + &quot; &quot; 
++ &quot;, &quot; + TEXT(YEAR( DateOfBirth__c ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DOB</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DOJ__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH( DateOfJoining__c  ), 
+1, &quot;January&quot;, 
+2, &quot;February&quot;, 
+3, &quot;March&quot;, 
+4, &quot;April&quot;, 
+5, &quot;May&quot;, 
+6, &quot;June&quot;, 
+7, &quot;July&quot;,  
+8, &quot;August&quot;, 
+9, &quot;September&quot;, 
+10, &quot;October&quot;, 
+11, &quot;November&quot;, 
+12, &quot;December&quot;, 
+&quot;None&quot;) + &quot; &quot; + 
+TEXT(DAY( DateOfJoining__c  )) + &quot; &quot; + Case(DAY( DateOfJoining__c ),
+1,&quot;st&quot;,
+2,&quot;nd&quot;,
+3,&quot;rd&quot;,
+4,&quot;th&quot;,
+5,&quot;th&quot;,
+6,&quot;th&quot;,
+7,&quot;th&quot;,
+8,&quot;th&quot;,
+9,&quot;th&quot;,
+10,&quot;th&quot;,
+11,&quot;th&quot;,
+12,&quot;th&quot;,
+13,&quot;th&quot;,
+14,&quot;th&quot;,
+15,&quot;th&quot;,
+16,&quot;th&quot;,
+17,&quot;th&quot;,
+18,&quot;th&quot;,
+19,&quot;th&quot;,
+20,&quot;th&quot;,
+21,&quot;st&quot;,
+22,&quot;nd&quot;,
+23,&quot;rd&quot;,
+24,&quot;th&quot;,
+25,&quot;th&quot;,
+26,&quot;th&quot;,
+27,&quot;th&quot;,
+28,&quot;th&quot;,
+29,&quot;th&quot;,
+30,&quot;th&quot;,
+31,&quot;st&quot;,&quot;None&quot;) + &quot; &quot; 
++ &quot;, &quot; + TEXT(YEAR( DateOfJoining__c  ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DOJ</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DateOfBirth__c</fullName>
+        <externalId>false</externalId>
+        <label>DateOfBirth</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateOfJoining__c</fullName>
+        <externalId>false</externalId>
+        <label>DateOfJoining</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Father_sName__c</fullName>
+        <externalId>false</externalId>
+        <label>Father&apos;sName</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Visakhapatnam</fullName>
+                    <default>false</default>
+                    <label>Visakhapatnam</label>
+                </value>
+                <value>
+                    <fullName>Vijayanagaram</fullName>
+                    <default>false</default>
+                    <label>Vijayanagaram</label>
+                </value>
+                <value>
+                    <fullName>Srikakulam</fullName>
+                    <default>false</default>
+                    <label>Srikakulam</label>
+                </value>
+                <value>
+                    <fullName>Rajamundry</fullName>
+                    <default>false</default>
+                    <label>Rajamundry</label>
+                </value>
+                <value>
+                    <fullName>Vijayawada</fullName>
+                    <default>false</default>
+                    <label>Vijayawada</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Mother_sName__c</fullName>
+        <externalId>false</externalId>
+        <label>Mother&apos;sName</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Password1__c</fullName>
+        <externalId>false</externalId>
+        <label>Password1</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReTypePassword1__c</fullName>
+        <externalId>false</externalId>
+        <label>ReTypePassword1</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Semester__c</fullName>
+        <externalId>false</externalId>
+        <label>Semester</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1st</fullName>
+                    <default>false</default>
+                    <label>1st</label>
+                </value>
+                <value>
+                    <fullName>2-1</fullName>
+                    <default>false</default>
+                    <label>2-1</label>
+                </value>
+                <value>
+                    <fullName>2-2</fullName>
+                    <default>false</default>
+                    <label>2-2</label>
+                </value>
+                <value>
+                    <fullName>3-1</fullName>
+                    <default>false</default>
+                    <label>3-1</label>
+                </value>
+                <value>
+                    <fullName>3-2</fullName>
+                    <default>false</default>
+                    <label>3-2</label>
+                </value>
+                <value>
+                    <fullName>4-1</fullName>
+                    <default>false</default>
+                    <label>4-1</label>
+                </value>
+                <value>
+                    <fullName>4-2</fullName>
+                    <default>false</default>
+                    <label>4-2</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>StudentAddress__c</fullName>
+        <externalId>false</externalId>
+        <label>StudentAddress</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>UserName__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>UserName</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>YearOfJoining__c</fullName>
+        <externalId>false</externalId>
+        <label>YearOfJoining</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>collegeName__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>collegeName</label>
+        <referenceTo>college1__c</referenceTo>
+        <relationshipLabel>StudentInformations</relationshipLabel>
+        <relationshipName>StudentInformations</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>uniqueuser__c</fullName>
+        <externalId>false</externalId>
+        <label>uniqueuser</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>StudentInformation</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>StudentName</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>StudentInformations</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Update</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Update</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>&apos;/apex/StudentInformationpagewithHtmlstyling?id&apos;+{!StudentInformation__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Updatestudentrecord</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Updatestudentrecord</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>var recordid=&apos;{!StudentInformation__c.Id}&apos;;
+var url=&apos;/apex/StudentInformationpagewithHtmlstyling?id=&apos;+recordid;
+window.open(url,&apos;_blank&apos;);</url>
+    </webLinks>
+</CustomObject>

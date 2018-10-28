@@ -1,0 +1,20 @@
+<apex:page controller="Accountsavecls1" id="pg">	
+	<apex:includescript value="{!$Resource.Myjs}"/>
+	<apex:stylesheet value="{!$Resource.Mycss}"/>	
+    <apex:form id="fm">    
+    	
+    	<apex:image value="{!$Resource.Salesforce}"/>
+    	<apex:actionfunction name="savecalling1"   action="{!save123}"/>
+        <apex:pageBlock id="pb">
+            <apex:pageblockButtons >
+                <apex:commandButton value="Save" onclick="return savecalling();"/>
+            </apex:pageBlockButtons>
+            <apex:pageblockSection id="pbs">
+                <apex:inputField value="{!actobj.name}" id="name" styleclass="name"/>
+                <apex:inputField value="{!actobj.type}"/>
+                <apex:inputField value="{!actobj.industry}" styleclass="industry"/>    
+                <apex:inputFile filename="{!filename123}"  value="{!filebody123}"/>                           
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

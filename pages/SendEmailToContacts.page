@@ -1,0 +1,81 @@
+<apex:page controller="sendEmailToContactsClass" id="thePage">
+<script>
+function checkAll(cb) {
+           var inputElem = document.getElementsByTagName("input");
+           for(var i=0; i<inputElem.length; i++){    
+                if(inputElem[i].id.indexOf("reccheck")!=-1)                          
+               inputElem[i].checked = cb.checked;
+           }
+       }
+       function CheckBoxClik(cBox){               
+          var checkId=''; 
+          var temId;
+          var count='';    
+          if(cBox.checked==true){
+           temId = cBox.id.split(":");        
+              for(var i=0;i<temId.length-2;i++){
+                  checkId = checkId+temId[i]+':';
+              }
+              var i=0;
+              for(i=0;i>=0;i++){
+                  if(document.getElementById(checkId+i+':reccheck')!=null){
+                      if(document.getElementById(checkId+i+':reccheck').checked==true){
+                          count=count+'x:';                    
+                      }            
+                  }else{
+                      break;
+                  }
+              }
+              count = count.split(':');
+              var j=i+1;
+              if(j==count.length){
+                  document.getElementById('thePage:theForm:thePb:thePBT:theHeaderId').checked=true;
+              }
+          }else{
+              temId = cBox.id.split(":");        
+              for(var i=0;i<temId.length-2;i++){
+                  checkId = checkId+temId[i]+':';
+              }    
+              var i=0;
+               
+              for(i=0;i>=0;i++){
+                  if(document.getElementById(checkId+i+':reccheck')!=null){
+                      if(document.getElementById(checkId+i+':reccheck').checked==false){
+                          count=count+'x:';
+                      }
+                  }else{
+                      break; 
+                  }                
+              }
+              count = count.split(':');
+              var j=i+1;             
+              if(i!=count.length-1){
+                  document.getElementById('thePage:theForm:thePb:thePBT:theHeaderId').checked=false;                                           
+              }
+          } 
+       }
+ </script>
+  <apex:form id="theForm">
+   <apex:pageBlock id="thePb">
+     <apex:pageMessage summary="Email is required for this contact." severity="warning" strength="3" rendered="{!isdisplay}"/>
+        <apex:pageMessages />
+     <apex:pageBlockButtons location="top">
+      <apex:commandButton value="SendEmail" action="{!sendEmail}"/>
+     </apex:pageBlockButtons>
+        <apex:pageBlockTable value="{!getContacts}" var="c" id="thePBT">
+          <apex:column onclick="">
+            <apex:facet name="header">
+                 <apex:inputCheckbox onclick="checkAll(this)" id="theHeaderId"/>
+            </apex:facet>
+            <apex:inputCheckbox value="{!c.isselected}" id="reccheck" onclick="CheckBoxClik(this)" /> 
+          </apex:column>
+          <apex:column headerValue="Contact Name">
+            <apex:outputText value="{!c.con.Name}"/>
+          </apex:column>
+          <apex:column headerValue="Email">
+            <apex:outputText value="{!c.con.Email}"/>          
+          </apex:column>
+        </apex:pageBlockTable>
+   </apex:pageBlock>
+  </apex:form>
+</apex:page>

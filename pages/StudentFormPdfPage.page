@@ -1,0 +1,22 @@
+<apex:page controller="studentFormPdfPageClass" renderAs="pdf" standardStylesheets="false">
+  <apex:form >        
+      <apex:pageBlock title="StudentForm">  
+          <apex:pageBlockSection columns="1">                   
+               <apex:outputText label="Name" value="{!objS.Name}" style="border:2px" />
+               <apex:outputText label="CollegeName" value="{!objS.CollegeName__c}"/>                        
+               <apex:outputText label="Location" value="{!objS.Location__c}"/>              
+               <apex:outputText label="Age" value="{!objS.Age__c}"/>                           
+               <apex:outputText value="DateOfBirth {0,date,dd/MM/yyyy }">                               
+                  <apex:param value="{!objS.DateOfBirth__c}" />
+               </apex:outputText>             
+               <apex:outputText label="Gender" value="{!objS.Gender__c}"/>              
+               <apex:outputText label="MaritalStatus" value="{!objS.MaritalStatus__c}">                          
+               <apex:image value="{!$Resource.TickMarkLogo}" width="25" height="25" rendered="{!ren}"/>
+               </apex:outputText>               
+               <apex:outputText label="PhoneNumber" value="{!objS.PhoneNumber__c}"/>
+               <apex:outputText label="Qualification" value="{!objS.Qualification__c}"/>
+               <apex:outputText label="Skills__c" value="{!objS.Skills__c}"/>                                     
+          </apex:pageBlockSection>           
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,129 @@
+<apex:page controller="Loginstudentinfowithpassword" id="pg" showHeader="false" standardStylesheets="false">
+<apex:form id="fm">
+     <script>
+        function comparestrings()
+        {
+            
+        var ck_password =  /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
+        var errors = [];
+           
+      var text = document.getElementById('pg:fm:pass').value;
+       
+       
+     
+      var text2 = document.getElementById('pg:fm:repass').value;
+       var user = document.getElementById('pg:fm:Usr').value;
+    
+       if (!ck_password.test(text)) 
+       
+          
+       
+       
+       {
+       
+        alert( 'You must enter a valid Password ');
+        
+        document.getElementById('pg:fm:pass').focus();
+         return  false;
+  
+      }
+    
+    
+    
+     
+    if(text == text2)
+     {
+      
+     
+         alert('sucess passwords matched');
+       
+         insert();
+      
+     }
+     
+       
+     else
+     {
+            alert('pass didnt match'); 
+      document.getElementById('pg:fm:repass').focus();
+            
+     
+     }
+     
+     
+   
+     
+     
+     
+     
+     
+     }
+     
+     
+     </script>
+     <apex:actionFunction name="insert" action="{!studentrecord}" reRender="ap" />
+       
+    <apex:actionFunction name="Loginpage" action="{!pgcancel}"/>
+   
+   <apex:pageMessages id="ap"/>
+
+
+      <body bgcolor="#E6E6FA">
+    <table frame= "border" cellpadding="30"  align="center"  td="tab1" ><caption><b>StudentInformation</b></caption>
+       
+         <tr id="tr1">
+             
+             <td id="td1"><h4>Student Name</h4></td>
+             <td id="td2">
+             <apex:inputField value="{!std.Name}" id="nam" required="true"/>
+             </td>
+         </tr>
+                
+          
+          
+          
+          <tr id="tr2">
+          <td id="td3"><h4>UserName</h4></td>
+          <td id="td4" >
+          <apex:inputField value="{!std.UserName__c}" id="Usr"/>  
+          </td>
+          </tr>
+          
+         <tr id="tr3">
+              <td id="td5"><h4>Password</h4></td>
+          <td id="td6">
+          <apex:inputSecret value="{!std.Password1__c}" id="pass"/>  
+          </td>
+          </tr>
+          
+          
+          <tr id="tr4">
+              <td id="td7" ><h4> ReTypePassword</h4></td>
+          <td id="td8">
+          <apex:inputSecret value="{!std.ReTypePassword1__c}" id="repass"/>
+          </td>
+          </tr>
+          
+          
+          
+                   
+          
+          
+          <tr id="tr5">
+          
+          <td id="td9"><apex:commandButton value="cancel" action="{!studentrecord}"/></td>
+          
+          <td id="td10"><apex:commandButton value="Submit"  onclick="comparestrings(); return false;"/></td>
+          </tr>      
+             
+          
+          
+                
+       </table>
+       
+       </body>
+
+</apex:form>
+
+
+</apex:page>

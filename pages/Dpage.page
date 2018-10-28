@@ -1,0 +1,44 @@
+<apex:page controller="Dclass" id="pg">	
+	<apex:form id="fm">
+		<apex:pageblock id="pb">
+			<apex:pageBlockSection id="pbs">
+				<apex:inputField value="{!actobj.name}" id="name"/>
+				<apex:inputField value="{!actobj.industry}" id="industry" onchange="fun()">
+					<script>
+						function fun(){
+							var industry=document.getElementById('{!$Component.industry}').value;
+					
+							if(industry=='Banking'){
+									document.getElementById('pg:fm:pb:pbs:phone').disabled=false;
+							}
+							else{
+								
+								document.getElementById('pg:fm:pb:pbs:phone').disabled=true;
+							}
+						}
+					</script>
+				
+				</apex:inputField>
+				<apex:inputField value="{!actobj.Phone}" id="phone"/>
+				<apex:inputField value="{!actobj.rating}" id="rating" onchange="fun1();">
+					<script>
+						function fun1(){
+							var rating=document.getElementById('{!$Component.rating}').value;
+							
+							if(rating=='Hot'){
+								
+								document.getElementById('pg:fm:pb:pbs:site').disabled=false;
+							}
+							else{
+								
+								document.getElementById('pg:fm:pb:pbs:site').disabled=true;
+							}
+						}
+					</script>
+				</apex:inputField>
+				<apex:inputField value="{!actobj.Site}" id="site"/>
+				
+			</apex:pageBlockSection>
+		</apex:pageblock>
+	</apex:form>
+</apex:page>

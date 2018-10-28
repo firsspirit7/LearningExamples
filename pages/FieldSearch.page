@@ -1,0 +1,58 @@
+<apex:page controller="Indicatingfieldsonclassesandtriggers" sidebar="false">
+    <apex:form >
+    		<apex:actionStatus startText="Please Wait..." stopText="" id="myStatus">
+                      <apex:facet name="start">
+                            <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;
+                                   height: 100%;opacity:0.65;width:100%;"> 
+                                <div class="waitingHolder" style="top: 74.2px; width: 91px;">
+                                    <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                                    <span class="waitingDescription">Please Wait...</span>
+                                </div>
+                            </div>
+                        </apex:facet>
+           </apex:actionstatus>
+         <apex:outputLabel value="Select object Name" for="objectName"/>&nbsp;&nbsp;
+         <apex:SelectList value="{!selectedObject}" size="1" id="objectName">
+            <apex:selectOptions value="{!lstselectOption}"/>
+            <apex:actionSupport event="onchange" action="{!Fieldslst}" rerender="fieldName,pb,pb1,pb2" status="myStatus"/>
+         </apex:SelectList>&nbsp;&nbsp;
+         <apex:outputLabel value="Select Field" for="fieldName"/> &nbsp;&nbsp;
+         <apex:selectList value="{!fieldName}"  id="fieldName" size="1">
+            <apex:SelectOptions value="{!lstselectfields}"/>
+            <apex:actionSupport event="onchange" action="{!Findfield}" rerender="pb,pb1,pb2,pb3" status="myStatus"/>
+         </apex:selectList>
+         <br/><br/>
+        <apex:pageBlock title="Apex Classes" id="pb">
+            <apex:pageBlockTable value="{!lstapexclasses}" var="cls">
+                <apex:column headerValue="Class Name">
+                    <apex:outputLink value="/{!cls.id}" target="_blank">{!cls.name}</apex:outputLink>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:pageBlock title="Apex Triggers" id="pb1">
+            <apex:pageBlockTable value="{!lstapextrigger}" var="trig">
+                <apex:column headerValue="Trigger Name">
+                    <apex:outputLink value="/{!trig.id}" target="_blank">{!trig.name}</apex:outputLink>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:pageBlock title="Validation Rules" id="pb2">
+            <apex:pageBlockTable value="{!lstvalidationRule}" var="validobj">
+                <apex:column headerValue="Validation Rule Name">
+                    <apex:outputLink value="/{!validobj.validationRuleId}" target="_blank">{!validobj.validationName}</apex:outputLink>
+                </apex:column>
+                 <apex:column headerValue="Error Condition Formula" value="{!validobj.errorConditionFormula}">
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:pageBlock title="Workflow Rules" id="pb3">
+            <apex:pageBlockTable value="{!lstWflowrules}" var="wflowobj">
+                <apex:column headerValue="Validation Rule Name">
+                    <apex:outputLink value="/{!wflowobj.wflowId}" target="_blank">{!wflowobj.wflowName}</apex:outputLink>
+                </apex:column>
+                 <apex:column headerValue="Formula/Criteria" value="{!wflowobj.formulacondition}">
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

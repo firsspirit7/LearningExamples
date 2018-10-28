@@ -1,0 +1,51 @@
+<apex:page controller="StudentFormListView2" id="p">
+  <apex:form >
+    <apex:pageBlock title="StudenFormListView"  id="pb">  
+    <apex:Messages /> 
+        <apex:pageblockTable value="{!lstwrapper}" var="l" id="pb">
+            <apex:column headerValue="Action">
+                  <apex:commandLink value="Edit" action="{!doEdit}"  rerender="pb" rendered="{!l.ren2}">
+                  <apex:param name="rowIndex1" value="{!l.rowIndex}" assignTo="{!rowIndex1}"/> 
+                  </apex:commandLink>&nbsp;&nbsp;&nbsp;
+                  <apex:commandLink value="Delete" action="{!doDelete}" rerender="pb" rendered="{!l.ren2}">  
+                  <apex:param name="rowIndex1" value="{!l.rowIndex}" assignTo="{!rowIndex1}"/>
+                  </apex:commandLink>
+                  <apex:commandLink value="Save" action="{!doSave}" rerender="pb" rendered="{!Not(l.ren2)}">
+                  <apex:param name="rowIndex1" value="{!l.rowIndex}" assignTo="{!rowIndex1}"/>
+                  </apex:commandLink>&nbsp;&nbsp;&nbsp;    
+                  <apex:commandLink value="Cancel" action="{!doCancel}" reRender="pb" rendered="{!Not(l.ren2)}" immediate="true">
+                  <apex:param name="rowIndex1" value="{!l.rowIndex}"  assignTo="{!rowIndex1}"/>   
+                  </apex:commandLink>      
+            </apex:column>                              
+                    <apex:column headerValue="StudentName">
+                    <apex:outputText value="{!l.stu.Name}" rendered="{!l.ren2}" />
+                    <apex:inputField value="{!l.stu.Name}" rendered="{!Not(l.ren2)}"/>
+                    </apex:column>
+                    <apex:column headerValue="PhoneNumber">
+                    <apex:outputText value="{!l.stu.PhoneNumber__c}" rendered="{!l.ren2}" />
+                    <apex:inputField value="{!l.stu.PhoneNumber__c}" rendered="{!Not(l.ren2)}"/>
+                    </apex:column>
+                    <apex:column headerValue="Age">
+                    <apex:outputText value="{!l.stu.Age__c}" rendered="{!l.ren2}" />
+                    <apex:inputField value="{!l.stu.Age__c}" rendered="{!Not(l.ren2)}"/>
+                    </apex:column>
+                    <apex:column headerValue="Qualification">
+                    <apex:outputText value="{!l.stu.Qualification__c}" rendered="{!l.ren2}" />
+                    <apex:inputField value="{!l.stu.Qualification__c}" rendered="{!Not(l.ren2)}"/>
+                    </apex:column>
+                    <apex:column headerValue="DateOfBirth">
+                    <apex:outputText value="{!l.stu.DateOfBirth__c}" rendered="{!l.ren2}" />
+                    <apex:inputField value="{!l.stu.DateOfBirth__c}" rendered="{!Not(l.ren2)}"/>
+                    </apex:column>
+                    <apex:column headerValue="MaritalStatus">
+                    <apex:outputText value="{!l.stu.MaritalStatus__c}" rendered="{!l.ren2}" />
+                    <apex:inputField value="{!l.stu.MaritalStatus__c}" rendered="{!Not(l.ren2)}"/>
+                    </apex:column>
+                    <apex:column headerValue="RowIndex">
+                    <apex:outputText value="{!l.RowIndex}" rendered="{!l.ren2}" />
+                    <apex:outputText value="{!l.RowIndex}" rendered="{!Not(l.ren2)}"/>
+                    </apex:column>
+       </apex:pageblockTable>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

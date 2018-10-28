@@ -1,0 +1,32 @@
+<apex:page controller="pdfAttchmentClass" id="p" >
+<script  type="text/javascript">
+function verifyEmail()
+{
+   var email = document.getElementById('p:f:pb:it').value;
+   
+        if (email == '') 
+          {
+          alert("Please enter a valid email address."); 
+          return false; 
+          }
+        else
+          return true;                      
+}
+</script>
+  <apex:form id="f" onsubmit="return checkbae()">
+   <apex:pageblock id="pb"> 
+    <apex:PageMessages />   
+       <apex:outputText value="Enter Valid Email"  rendered="{!ren}"/>&nbsp;&nbsp;&nbsp;
+       <apex:inputtext value="{!Key}" id="it" rendered="{!ren}"/>&nbsp;&nbsp;&nbsp;
+     <apex:commandButton value="SendPdf" action="{!sendpdf}" onclick="return verifyEmail();" rendered="{!ren}"/>    
+    <apex:pageBlockTable value="{!getcontacts}" var="c">
+      <apex:column headerValue="Contact Name">
+       <apex:outputText value="{!c.Name}"/>
+      </apex:column>
+      <apex:column headerValue="Email">
+       <apex:outputText value="{!c.Email}"/>
+      </apex:column>
+    </apex:pageBlockTable>
+   </apex:pageblock>
+  </apex:form>
+</apex:page>

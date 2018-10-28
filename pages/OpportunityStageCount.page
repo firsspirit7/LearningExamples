@@ -1,0 +1,14 @@
+<apex:page controller="opportunityStageCountClass">
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageblockTable value="{!count}" var="c">
+        <apex:column headerValue="Opportunity StageName"> 
+          <apex:outputText value="{!c.Sname}"/>                  
+        </apex:column>
+        <apex:column headervalue="Opportunity Count">
+          <apex:outputText value="{!c.cnt}"/>
+        </apex:column>        
+      </apex:pageblockTable>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,20 @@
+<apex:page controller="studentFormLookupPageClass" wizard="true">
+ <script  type="text/javascript">
+   function setvalue(resultName)
+       {        
+        window.opener.document.getElementById('pg:myform:pb:pbs:cname').value = resultName;
+        self.close();
+        return false;     
+       }
+
+ </script> 
+  <apex:form id="frm">
+    <apex:pageBlock >
+       <apex:pageblockTable value="{!Colleges}" var="c">
+         <apex:column headerValue="List Of Colleges">
+            <apex:commandLink value="{!c.name}" onClick="return setvalue('{!c.name}');"/>
+         </apex:column>        
+       </apex:pageblockTable>
+    </apex:pageBlock>
+  </apex:form>  
+</apex:page>

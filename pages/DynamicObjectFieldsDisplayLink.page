@@ -1,0 +1,9 @@
+<apex:page controller="dynamicObjectFieldsDisplayLinkClass2" wizard="true">
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockTable value="{!fields}" var="f">
+        <apex:column value="{!f}" headerValue="Fields"/>
+      </apex:pageBlockTable>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

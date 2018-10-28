@@ -1,0 +1,19 @@
+<apex:page controller="opportunitiesStylesClass">
+  <apex:form >
+   <apex:pageBlock >
+    <apex:pageBlockTable value="{!getOpp}" var="o">
+      <apex:column headerValue="Opportunity Name" style="{!CASE(o.StageName,'Closed Lost','background-color:Red','Closed Won','background-color:Green;color:White','Needs Analysis','background-color:Yellow','background-color:Black;color:white')}">
+        <apex:outputText value="{!o.Name}"/> 
+      </apex:column>
+      <apex:column headerValue="Close Date" style="{!CASE(o.StageName,'Closed Lost','background-color:Red','Closed Won','background-color:Green;color:White','Needs Analysis','background-color:Yellow','background-color:Black;color:white')}">
+       <apex:outputText value="{0,date,dd/MM/yyyy }" >                               
+          <apex:param value="{!o.CloseDate}" />
+       </apex:outputText>
+       </apex:column>
+      <apex:column headerValue="Stage" style="{!CASE(o.StageName,'Closed Lost','background-color:Red','Closed Won','background-color:Green;color:White','Needs Analysis','background-color:Yellow','background-color:Black;color:white')}">
+        <apex:outputText value="{!o.StageName}"/> 
+      </apex:column>
+    </apex:pageBlockTable>
+   </apex:pageBlock>
+  </apex:form>
+</apex:page>

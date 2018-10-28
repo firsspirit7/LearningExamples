@@ -1,0 +1,244 @@
+<apex:page controller="Loginstudentinfowithpassword" sidebar="false" showHeader="false"  standardStylesheets="false">
+  <apex:form >
+  
+ <style>
+ #sddm
+{   margin: 0;
+    padding: 0;
+    z-index: 30}
+
+#sddm li
+{   margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+    font: bold 11px arial}
+
+#sddm li a
+{   display: block;
+    margin: 0 1px 0 0;
+    padding: 4px 10px;
+    width: 60px;
+    background: #5970B2;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none}
+
+#sddm li a:hover
+{   background: #49A3FF}
+
+#sddm div
+{   position: absolute;
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    background: #EAEBD8;
+    border: 1px solid #5970B2}
+
+    #sddm div a
+    {   position: relative;
+        display: block;
+        margin: 0;
+        padding: 5px 10px;
+        width: auto;
+        white-space: nowrap;
+        text-align: left;
+        text-decoration: none;
+        background: #EAEBD8;
+        color: #2875DE;
+        font: 11px arial}
+
+    #sddm div a:hover
+    {   background: #49A3FF;
+        color: #FFF}
+        
+     
+        
+ 
+ 
+ 
+ </style> 
+ 
+ <script>
+ 
+ 
+var timeout    = 500;
+var closetimer  = 0;
+var ddmenuitem  = 0;
+
+
+
+// open hidden layer
+function mopen(id)
+{   
+    // cancel close timer
+    mcancelclosetime();
+
+    // close old layer
+    if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+    // get new layer and show it
+    ddmenuitem = document.getElementById(id);
+    ddmenuitem.style.visibility = 'visible';
+  
+}
+function  contactdetails()
+{
+  contact();
+}
+
+function  aboutus()
+{
+ about();
+}
+
+
+
+
+// close showed layer
+function mclose()
+{
+    if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+
+
+// go close timer
+function mclosetime()
+{
+    closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+    if(closetimer)
+    {
+        window.clearTimeout(closetimer);
+        closetimer = null;
+       
+    }
+}
+
+
+// close layer when click-out
+document.onclick = mclose; 
+
+   
+ 
+ 
+ </script>
+   <body bgcolor="#E6E6FA">
+   
+  <apex:actionFunction name="contact" action="{!pgdetails}"/>
+  
+  <apex:actionFunction name="about" action="{!pgabout}"/>
+  
+    <ul id="sddm">
+    <li><a href="#" 
+        onmouseover="mopen('m1')" 
+        onmouseout="mclosetime()">Home</a>
+        <div id="m1" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="#" id="pb" onclick="contactdetails();" >Contact Us</a>   
+            
+       
+        <a href="#" onclick="aboutus();">About Us</a>
+       
+        </div>
+        
+    </li>
+    <li><a href="#" 
+        onmouseover="mopen('m2')" 
+        onmouseout="mclosetime()">Urls</a>
+  <div id="m2" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="https://workbench.developerforce.com/query.php">WorkBench</a>
+        <a href="http://www.forcetree.com/2012/01/upload-contacts-from-csv-file-in.html">Uploading  Contacts From Csv File</a>
+        <a href="http://www.forcetree.com/2011/01/uploading-document-into-salesforce.html">Uploading A Document Into Salesforce </a>
+        <a href="http://blog.jeffdouglas.com/2010/01/07/using-list-custom-settings-in-salesforce-com"> Custom Settings In Salesforce</a>
+        <a href="http://www.mountaindragon.com/html/marquee.htm">Marquee</a>
+        <a href="http://www.shellblack.com/salesforce/marketing/web-to-lead">Web To Lead</a>
+        <a href="http://www.salesforce.com/us/developer/docs/dev_lifecycle/ ">Developer Life Cycle</a>
+        <a href="http://www.9lessons.info/2009/03/perfect-javascript-form-validation.html">validations in javascript</a>
+        <a href="https://c.ap1.visual.force.com/apex/Signuppagestudentinfodata">SignUp As A Student</a>
+        <a href="https://c.ap1.visual.force.com/apex/Loginpage">Login In A User</a>
+        <a href="http://javascript-array.com/scripts/simple_drop_down_menu/"> Menu View Works On Mouse Over</a>
+   </div>
+    </li>
+    <li><a href="#">Company</a>
+    
+    
+    </li>
+    <li><a href="#"  onmouseover="mopen('m3')"  onmouseout="mclosetime()" >Technologies</a>
+    <div id="m3" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+    <a href="http://www.w3schools.com">HTML </a>
+    <a href="www.cprogramming.com/tutorial.html">C Tutorial</a>
+    <a href="msdn.microsoft.com/en-us/library/aa288436(v=vs.71).aspx">C# Tutorial</a>
+    <a href="www.javatutorialhub.com/"> java  tutorial</a>
+     </div>
+    </li>
+    
+    <li><a href="#">Contact</a>
+    
+    </li>
+</ul>
+<div style="clear:both"></div>
+
+      <apex:outputPanel id="op" rendered="{!rendering}">
+           <table frame="border"  align ="center"><caption><b>Appshark Student Information</b></caption>
+           
+            <tr>
+             <th>Email:</th>
+             <td>StudentQueries@appshark.com</td>
+            </tr>
+            
+            <tr>
+             <th>Address</th>
+             
+              <td colspan="2">Appshark Student Federation Of India Pvt.Ltd</td><br></br>
+              
+             </tr>
+             
+             <tr>
+             <td>ITPARK </td>
+             </tr>
+             
+             <tr>
+             <td>Visakhapatnam</td>
+            </tr>
+                 
+            
+            
+           
+           </table>
+           
+          
+      
+      </apex:outputPanel>
+       
+         <apex:outputPanel id="op2" rendered="{!!rendering}">
+               <table frame="border" align="center" cellspacing="100">
+                  <tr>
+                  <td><p> Appshark is a software company that provides its business across the globe and
+                   it also provide education to lots of students, it has various branches under the section, 
+                   it provides development in DOTNET, SALESFORCE and Mobile Techonologies .</p></td>
+                  </tr>
+                
+               
+               </table>
+         
+         </apex:outputPanel>
+
+
+ </body>
+    
+    
+  </apex:form>
+
+
+</apex:page>

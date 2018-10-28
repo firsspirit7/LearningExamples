@@ -1,0 +1,15 @@
+<apex:page controller="dynamicObjectsNameinsertionClass">
+ <apex:form >
+   <apex:pageBlock >
+    <apex:pageBlockButtons location="bottom">
+      <apex:commandButton value="Save" action="{!doSave}" immediate="false"/>
+    </apex:pageBlockButtons>
+     <apex:outputText >Select Object</apex:outputText>&nbsp;&nbsp;
+       <apex:SelectList value="{!selectedObj}" size="1" onchange="fun()">
+           <apex:selectOptions value="{!items}"/>
+       </apex:SelectList><br/><br/>
+     <apex:outputText >Enter Name</apex:outputText>&nbsp;&nbsp;
+     <apex:inputText value="{!name}"/>
+   </apex:pageBlock>
+ </apex:form>
+</apex:page>

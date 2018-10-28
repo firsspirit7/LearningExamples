@@ -1,0 +1,35 @@
+<apex:page StandardController="Account" extensions="AddRows" id="thePage">
+  <apex:form >
+    <apex:pageblock id="pb" >
+       <apex:pageBlockButtons location="top">
+          <apex:commandbutton value="Add" action="{!Add}" immediate="true" rerender="pb1" style="background-color:red !important;"/>
+          <apex:commandbutton value="Save" action="{!Save}"/>
+    </apex:pageBlockButtons>      
+        <apex:pageblock id="pb1">            
+        <apex:repeat value="{!lstInner}" var="e1" id="therepeat">
+                <apex:panelGrid columns="4">                           
+                <apex:panelGrid >
+                    <apex:facet name="header">Account Name</apex:facet>
+                    <apex:inputfield value="{!e1.acct.Name}" />
+                </apex:panelGrid>
+                <apex:panelGrid title="Industry">
+                    <apex:facet name="header">Industry</apex:facet>
+                    <apex:inputfield value="{!e1.acct.Industry}"/>
+                </apex:panelGrid>                
+                <apex:panelGrid >
+                    <apex:facet name="header">Type</apex:facet>
+                    <apex:inputfield value="{!e1.acct.Type}"/>
+                </apex:panelGrid>   
+                <apex:panelGrid headerClass="Name">
+                    <apex:facet name="header">Action</apex:facet>
+                    <apex:commandLink value="Remove" action="{!Del}" rerender="pb1" immediate="true" id="del">
+                    <apex:param name="rowIndex" value="{!$Component.del}" assignTo="{!rowIndex}"/>
+                        <!--<apex:param name="rowToBeDeleted" value="{!e1.recCount}" assignTo="{!selectedRowIndex}"></apex:param>-->
+                    </apex:commandLink>
+                </apex:panelGrid>                                 
+            </apex:panelgrid>
+        </apex:repeat>
+    </apex:pageBlock>        
+</apex:pageblock>
+</apex:form>
+</apex:page>

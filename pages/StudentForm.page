@@ -1,0 +1,64 @@
+<apex:page controller="studentFormclass" id="pg">
+<script  type="text/javascript">
+    function ValidateAlpha()
+       {
+            var keyCode = window.event.keyCode;
+            if ((keyCode < 65 || keyCode > 90) && (keyCode < 97 || keyCode > 123) && keyCode != 32)
+                {
+                     window.event.returnValue = false;
+                     alert("Enter only letters");
+                }
+       }
+    function onlyNumbers(evt)
+       {
+            var e = event || evt; // for trans-browser compatibility
+            var charCode = e.which || e.keyCode;
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                    {
+                        alert("Please enter Numbers Only");
+                        return false;
+                    }
+            return true;
+        }
+    function mypopup()
+        {               
+                mywindow = window.open("/apex/StudentFormLookupPage", "mywindow", "location=1,status=1,scrollbars=1,  width=1000,height=1000");                    
+                return false;                  
+        }
+</script>
+  <apex:form id="myform">
+   <apex:actionFunction name="test" action="{!change}"/>  
+     <div align="Center" style="Color:Red">
+         <font size="8" face="arial" color="red">Student Form </font>
+     </div>
+      <apex:pageBlock tabStyle="StudentForm__c" id="pb">
+          <apex:pageBlockButtons location="Bottom">
+              <apex:commandButton value="Save" action="{!doSave}" onclick="checkName('{!objS.Name}')"/>
+              <apex:commandButton value="Cancel" action="{!doCancel}"/>
+          </apex:pageBlockButtons>   
+          <apex:pageBlockSection title="Student Information" collapsible="false" columns="1" id="pbs">
+              <apex:inputField value="{!objS.Name}" id="sname" onkeypress="ValidateAlpha();"/>
+              <apex:outputText label="CollegeName">
+              <apex:inputtext id="cname" value="{!objS.CollegeName__c}"/> 
+                 <a href="#" id="link" title="Contact Lookup (New Window)" tabindex="6"  onClick="mypopup()">
+                    <img class="lookupIcon" title="Contact Lookup (New Window)" alt="Contact Lookup (New Window)" src="/s.gif"/>
+                 </a>                                         
+              </apex:outputtext>
+              <apex:inputField value="{!objS.Location__c}"/>              
+              <apex:inputText value="{!objS.PhoneNumber__c}" id="PhoneNumber" maxlength="10" onkeypress="return onlyNumbers();"/>  
+              <apex:selectRadio label="gender" value="{!objS.Gender__c}" >
+                   <apex:selectOptions value="{!items}"/>
+              </apex:selectRadio>          
+              <apex:inputField value="{!objS.Qualification__c}"/>
+              <apex:inputField value="{!objS.Skills__c}" style="background-color: #CCFB5D;"/>
+              <apex:inputText value="{!objS.Age__c}" maxlength="2" onkeypress="return onlyNumbers();" size="4"/>
+              <apex:inputField value="{!objS.DateOfBirth__c}"/> 
+               <div>           
+              <apex:inputField value="{!objS.MaritalStatus__c}" onchange="test()">&nbsp; &nbsp;&nbsp;              
+              <apex:image id="test"  value="{!$Resource.TickMarkLogo}" width="25" height="25" rendered="{!ren}"/>
+              </apex:inputField>
+              </div>                                                                    
+          </apex:pageBlockSection> 
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

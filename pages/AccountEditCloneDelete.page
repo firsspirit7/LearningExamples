@@ -1,0 +1,90 @@
+<apex:page controller="accountEditCloneDeleteClass" tabStyle="Account">
+  <apex:form >
+   <apex:sectionHeader title="Account Edit" subtitle="New Account" help="https://ap1.salesforce.com/help/doc/user_ed.jsp?loc=help&target=account_edit.htm&section=Accounts"/>
+    <apex:pageblock title="Account Edit" tabStyle="Account">
+     <apex:pageblockbuttons >
+       <apex:commandButton value="save" action="{!doSave}" rendered="{!ren}"/>
+       <apex:commandButton value="save & New" action="{!doSaveNew}" rendered="{!ren}"/>
+       <apex:commandButton value="Cancel" action="{!doCancel}" rendered="{!ren}" immediate="true"/>
+       <apex:commandButton value="Edit" action="{!doEdit}" rendered="{!Not(ren)}"/>
+       <apex:commandButton value="Clone" action="{!doClone}" rendered="{!Not(ren)}"/>
+       <apex:commandButton value="Delete" action="{!doDelete}" rendered="{!Not(ren)}"/>
+     </apex:pageblockbuttons>
+       <apex:pageBlockSection title="Account Information" collapsible="false" columns="2">
+          <apex:outputText label="Account Owner ">{!$User.FirstName} {!$User.LastName}</apeX:outputText>
+          <apex:outputText value="{!objS.Rating}" rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Rating}" rendered="{!ren}" />
+          <apex:outputText value="{!objS.Name}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Name}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.Phone}"  rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Phone}"  rendered="{!ren}"/>
+          <apex:outputText value="{!objS.ParentId}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.ParentId}"  rendered="{!ren}"/>
+          <apex:outputText value="{!objS.Fax}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Fax}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.AccountNumber}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.AccountNumber}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.Website}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Website}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.Site}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Site}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.TickerSymbol}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.TickerSymbol}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.Type}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Type}"  rendered="{!ren}"/>
+          <apex:outputText value="{!objS.Ownership}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Ownership}"  rendered="{!ren}"/>
+          <apex:outputText value="{!objS.Industry}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Industry}"  rendered="{!ren}"/>
+          <apex:outputText value="{!objS.NumberOfEmployees}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.NumberOfEmployees}"   rendered="{!ren}"/>  
+          <apex:outputText value="{!objS.AnnualRevenue}"  rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.AnnualRevenue}"   rendered="{!ren}"/>  
+          <apex:outputText value="{!objS.Sic}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Sic}"   rendered="{!ren}"/>          
+       </apex:pageBlockSection>
+       <apex:pageBlockSection title="Address Information" columns="2" collapsible="false">
+          <apex:outputText value="{!objS.BillingStreet}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.BillingStreet}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.ShippingStreet}"  rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.ShippingStreet}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.BillingCity}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.BillingCity}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.ShippingCity}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.ShippingCity}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.BillingState}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.BillingState}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.ShippingState}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.ShippingState}"  rendered="{!ren}"/>
+          <apex:outputText value="{!objS.BillingPostalcode}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.BillingPostalcode}"  rendered="{!ren}"/>
+          <apex:outputText value="{!objS.ShippingPostalcode}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.ShippingPostalcode}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.BillingCountry}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.BillingCountry}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.ShippingCountry}"  rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.ShippingCountry}"   rendered="{!ren}"/>           
+       </apex:pageBlockSection>
+       <apex:pageBlockSection title="Additional Information" columns="2" collapsible="false">
+          <apex:outputText value="{!objS.CustomerPriority__c}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.CustomerPriority__c}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.SLA__c}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.SLA__c}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.SLAExpirationDate__c}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.SLAExpirationDate__c}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.SLASerialNumber__c}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.SLASerialNumber__c}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.NumberofLocations__c}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.NumberofLocations__c}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.UpsellOpportunity__c}"  rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.UpsellOpportunity__c}"   rendered="{!ren}"/>
+          <apex:outputText value="{!objS.Active__c}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Active__c}"   rendered="{!ren}"/>          
+       </apex:pageBlockSection>
+       <apex:pageblockSection title="Description Information" columns="2" collapsible="false"> 
+          <apex:outputText value="{!objS.Description}"   rendered="{!Not(ren)}"/>
+          <apex:inputField value="{!objS.Description}"   rendered="{!ren}"/>   
+       </apex:pageBlockSection>
+   </apex:pageblock>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,40 @@
+<apex:page controller="studentFormExcelclass">
+  <apex:form >
+      <apex:pageBlock title="StudentForm Details">
+        <apex:pageBlockButtons location="Bottom">
+          <apex:commandButton value="Generate Excel Sheet" action="{!excel}"/>
+        </apex:pageBlockButtons>
+          <apex:pageBlockTable value="{!getRecords}" var="r">
+              <apex:column headerValue="StudentName">
+                  <apex:outputText value="{!r.Name}"/>
+              </apex:column>
+              <apex:column headerValue="Location">
+                   <apex:outputText value="{!r.Name}"/>
+              </apex:column>
+              <apex:column headerValue="PhoneNumber">
+                   <apex:outputText value="{!r.PhoneNumber__c}"/>
+              </apex:column>
+              <apex:column headerValue="Gender">
+                   <apex:outputText value="{!r.Gender__c}"/>
+              </apex:column>
+              <apex:column headerValue="Qualification">
+                   <apex:outputText value="{!r.Qualification__c}"/>
+              </apex:column>
+              <apex:column headerValue="Skills">
+                   <apex:outputText value="{!r.Skills__c}"/>
+              </apex:column>
+              <apex:column headerValue="Age">
+                   <apex:outputText value="{!r.Age__c}"/>
+              </apex:column>
+              <apex:column headerValue="DateOfBirth">
+                   <apex:outputText value="{0,date,dd/MM/yyyy }">                               
+                     <apex:param value="{!r.DateOfBirth__c}" />
+                   </apex:outputText>
+              </apex:column>
+              <apex:column headerValue="MaritalStatus">
+                   <apex:outputText value="{!r.MaritalStatus__c}"/>
+              </apex:column>              
+          </apex:pageBlockTable>
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>
